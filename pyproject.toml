@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gng"
+version = "0.1.0"
+description = "GNG: a developer toolkit"
+requires-python = ">=3.9"
+dependencies = ["typer"]
+
+[project.scripts]
+gng = "gng.cli:app"
