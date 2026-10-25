@@ -14,6 +14,8 @@ pip install -e ".[dev]"
 
 ```
 gng                    # banner and welcome screen
+gng folder notes       # create a folder in the current location
+gng folder assets -d ~/Projects  # choose a parent folder
 gng new my-tool        # start a new Python CLI project
 gng doctor             # check your setup (Python, venv, git, terminal)
 gng todo [path]        # list TODO / FIXME notes in code
@@ -30,7 +32,7 @@ src/gng/
   cli.py        the commands, kept thin
   banner.py     the banner, colors and terminal detection
   ui.py         shared output helpers (markers, errors)
-  commands/     one file per command: new, doctor, todo, clean
+  commands/     one file per command: folder, new, doctor, todo, clean
 tests/
 ```
 

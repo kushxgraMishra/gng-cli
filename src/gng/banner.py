@@ -70,6 +70,7 @@ ASCII_MAP = str.maketrans({
 })
 
 COMMANDS = [
+    ("folder <name>", "create a folder here"),
     ("new <name>", "start a Python CLI project"),
     ("doctor", "check your setup"),
     ("todo", "list TODO notes in code"),

@@ -5,6 +5,7 @@ import typer
 from gng import banner
 from gng.commands import clean as clean_cmd
 from gng.commands import doctor as doctor_cmd
+from gng.commands import folder as folder_cmd
 from gng.commands import new as new_cmd
 from gng.commands import todo as todo_cmd
 
@@ -24,6 +25,15 @@ def new(
 ):
     """Start a new Python command-line project."""
     new_cmd.run(name, directory)
+
+
+@app.command()
+def folder(
+    name: str = typer.Argument(..., help="Name of the folder to create"),
+    directory: Path = typer.Option(Path("."), "--dir", "-d", help="Parent folder"),
+):
+    """Create a folder in the current location or under --dir."""
+    folder_cmd.run(name, directory)
 
 
 @app.command()
