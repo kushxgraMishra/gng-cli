@@ -9,10 +9,7 @@ import textwrap
 VERSION = "0.1.0"
 
 TAGLINES = [
-    "hii lol",
-    "YOUR PROJECT, IN BETTER SHAPE.",
-    "TINY TOOLS. USEFUL RESULTS.",
-    "READY WHEN YOU ARE.",
+    "hii lol"
 ]
 
 # --- Wordmarks ---------------------------------------------------------------
