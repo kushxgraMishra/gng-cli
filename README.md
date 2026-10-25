@@ -1,85 +1,48 @@
 # GNG
 
-GNG is a small Python developer toolkit CLI. Its terminal landing screen features a custom block-letter **GNG** wordmark, a neon cyan and magenta palette, and a compact layout that adapts to terminal width. The first command, `doctor`, reports which Python interpreter is running.
+A playful, cyberpunk-flavored developer toolkit for Python.
 
-## Requirements
+## Install (development)
 
-- Python 3.9 or newer
-- pip
-
-## Install for development
-
-From the project directory, create and activate a virtual environment:
-
-```bash
+```
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -e ".[dev]"
 ```
 
-On Windows PowerShell, activate it with:
+## Use
 
-```powershell
-.venv\Scripts\Activate.ps1
+```
+gng                    # banner and welcome screen
+gng new my-tool        # start a new Python CLI project
+gng doctor             # check your setup (Python, venv, git, terminal)
+gng todo [path]        # list TODO / FIXME notes in code
+gng clean [path]       # remove cache folders (--dry-run to preview, --yes to skip the question)
+gng --help             # list every command
 ```
 
-Install GNG in editable mode:
-
-```bash
-python -m pip install --upgrade pip
-python -m pip install -e .
-```
-
-Editable installation makes changes to `src/gng/` available without reinstalling.
-
-## Usage
-
-Run GNG's terminal welcome screen:
-
-```bash
-gng
-```
-
-Check the Python executable and version GNG is using:
-
-```bash
-gng doctor
-```
-
-Show command help:
-
-```bash
-gng --help
-```
-
-## Terminal display
-
-The banner selects a large or compact wordmark based on the available terminal width. In a terminal, it uses color when supported. For non-interactive output, GNG prints a short plain status line instead.
-
-- Set `NO_COLOR` to disable color.
-- Set `GNG_ASCII=1` to use an ASCII-compatible banner.
-- The banner and palette are implemented in `src/gng/banner.py`.
+Set `NO_COLOR=1` to turn colors off, or `GNG_ASCII=1` to use plain ASCII characters.
 
 ## Project layout
 
-```text
+```
 src/gng/
-├── __init__.py
-├── __main__.py   # Enables `python -m gng`
-├── banner.py     # Wordmark, colors, and terminal rendering
-└── cli.py        # Typer application and commands
+  cli.py        the commands, kept thin
+  banner.py     the banner, colors and terminal detection
+  ui.py         shared output helpers (markers, errors)
+  commands/     one file per command: new, doctor, todo, clean
 tests/
-└── test_banner.py
 ```
 
-## Development
+## Add a command
 
-Install pytest and run the banner tests:
+1. Create `src/gng/commands/mycommand.py` with a `run(...)` function.
+2. In `cli.py`, import it and add a small `@app.command()` function that calls `run`.
+3. Add a line to `COMMANDS` in `banner.py` so it shows on the welcome screen.
+4. Add a test in `tests/`.
 
-```bash
-python -m pip install pytest
-python -m pytest
+## Test
+
 ```
-
-## License
-
-No license has been specified yet.
+pytest
+```

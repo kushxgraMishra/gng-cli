@@ -9,7 +9,10 @@ import textwrap
 VERSION = "0.1.0"
 
 TAGLINES = [
-    "hii lol"
+    "hii lol",
+    "YOUR PROJECT, IN BETTER SHAPE.",
+    "TINY TOOLS. USEFUL RESULTS.",
+    "READY WHEN YOU ARE.",
 ]
 
 # --- Wordmarks ---------------------------------------------------------------
@@ -67,8 +70,10 @@ ASCII_MAP = str.maketrans({
 })
 
 COMMANDS = [
-    ("new <name>", "start a project from a template"),
-    ("doctor", "check your Python setup"),
+    ("new <name>", "start a Python CLI project"),
+    ("doctor", "check your setup"),
+    ("todo", "list TODO notes in code"),
+    ("clean", "remove cache folders"),
     ("--help", "list every command"),
 ]
 

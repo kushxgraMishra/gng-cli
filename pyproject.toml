@@ -6,8 +6,12 @@ build-backend = "hatchling.build"
 name = "gng"
 version = "0.1.0"
 description = "GNG: a developer toolkit"
+readme = "README.md"
 requires-python = ">=3.9"
 dependencies = ["typer"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
 
 [project.scripts]
 gng = "gng.cli:app"
