@@ -68,6 +68,12 @@ ASCII_MAP = str.maketrans({
 
 COMMANDS = [
     ("folder <name>", "create a folder here"),
+    ("ls [path]", "list files and folders"),
+    ("open [path]", "change terminal directory (zsh setup)"),
+    ("touch <file...>", "create empty files"),
+    ("rm <file...>", "delete files"),
+    ("rmdir <folder>", "delete a folder and its contents"),
+    ("rename <file> <name>", "rename a file"),
     ("new <name>", "start a Python CLI project"),
     ("doctor", "check your setup"),
     ("todo", "list TODO notes in code"),
